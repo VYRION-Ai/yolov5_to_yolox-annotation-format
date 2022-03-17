@@ -8,29 +8,15 @@ import glob
 
 def get_name(id):
     if id == "0":
-        label = 'bear'
-        return label
-    elif id == "1":
-        label = 'cougar'
-        return label
-    elif id =="2":
-        label = 'deer'
-        return label
-    elif id == "3":
-        label = 'elk'
-        return label
-    elif id =="4":
         label = 'human'
         return label
-    elif id == "5":
-        label = 'Mgoat'
+    elif id == "1":
+        label = 'car'
         return label
-    elif id == "6":
-        label = 'Moose'
+    elif id =="2":
+        label = 'animal'
         return label
-    elif id == "7":
-        label = 'vehicle'
-        return label
+
 
 
 # This is the parent (root) tag
