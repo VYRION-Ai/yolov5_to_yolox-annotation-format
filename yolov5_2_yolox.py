@@ -3,21 +3,34 @@ import json
 import cv2
 import os
 import io
-from cv2 import VideoWriter_fourcc
 import glob
 
 
 def get_name(id):
     if id == "0":
-        label = 'human'
+        label = 'bear'
         return label
     elif id == "1":
-        label = 'car'
+        label = 'cougar'
         return label
     elif id =="2":
-        label = 'animal'
+        label = 'deer'
         return label
-
+    elif id == "3":
+        label = 'elk'
+        return label
+    elif id =="4":
+        label = 'human'
+        return label
+    elif id == "5":
+        label = 'Mgoat'
+        return label
+    elif id == "6":
+        label = 'Moose'
+        return label
+    elif id == "7":
+        label = 'vehicle'
+        return label
 
 
 # This is the parent (root) tag
@@ -56,10 +69,11 @@ for filename in glob.glob('labels/*.txt'):
                     h = 0
                     id = 0
                     id = s(0)
+                    name = get_name(id)
                     elementobject = ET.SubElement(data, 'object')
                     s_elem_bndbox = ET.SubElement(elementobject, 'bndbox')
                     s_elem_name = ET.SubElement(elementobject, 'name')
-                    name = get_name(id)
+
                     s_elem_name.text = name
                     # print('width',width)
                     # print('s', s)
@@ -93,10 +107,11 @@ for filename in glob.glob('labels/*.txt'):
                     h = 0
                     id = 0
                     id = s[0]
+                    name = get_name(id)
                     elementobject = ET.SubElement(data, 'object')
                     s_elem_bndbox = ET.SubElement(elementobject, 'bndbox')
                     s_elem_name = ET.SubElement(elementobject, 'name')
-                    name = get_name(id)
+
                     s_elem_name.text = name
                     if s[1] != '':
                         centerx = float(s[1]) * width
